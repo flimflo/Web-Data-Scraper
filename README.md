@@ -17,3 +17,11 @@ Así mismo, es necesario tener instalado el driver de Selenium para el navegador
 
 ## Funcionamiento del Programa
 Al ejecutar el código, el programa pedirá al usuario la palabra que será el criterio de búsqueda. Después de escribirla y dar Enter, el programa hará la búsqueda de imágenes y estas se descargarán en dos nuevas carpetas creadas en el folder donde se ejecutó el programa. Estas carpetas serán **./train/[palabra]** y **./test/[palabra]**, donde **[palabra]** es el término de búsqueda. Cabe mencionar que el 80% de las imágenes recopiladas serán guardadas en la carpeta train y el resto en la carpeta test. 
+
+## Miembros del Equipo
+Los involucrados en esta actividad son:
+-	Fernando Limón Flores
+-	Héctor Noel León Quiroz
+-	Ricardo Marcelo Lozano Gil
+-	Adrián Ricardo Mancilla
+-	Alitzel Macías Infante
