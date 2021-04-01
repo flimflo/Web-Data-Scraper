@@ -17,13 +17,15 @@ def downloadSamples(listOfImages, sampleType):
         save_name = '{}/{}/{}{}.jpg'.format(sampleType,searchWord,searchWord,srcImageIndex) #Nombre local al guardar
         urllib.request.urlretrieve(image_url, save_name)
 
-driver = webdriver.Chrome() #Chrome Driver / En algunas implementaciones con Windows es necesario agregar un path entre los parentesis
 
 #####################################################################
-searchWord= "cat" #Imagenes a buscar
+print("Introduzca el término de búsqueda:")
+searchWord= str(input()) #Input de imagenes a buscar
 
 lastPageToSearch = 3 #Última página a buscar
 #####################################################################
+
+driver = webdriver.Chrome() #Chrome Driver / En algunas implementaciones con Windows es necesario agregar un path entre los parentesis
 
 SampleType = Enum('Sample', 'train test') #Enum para diferenciar entre test y train
 
@@ -31,6 +33,8 @@ totalSources = [] #Lista donde se alamacenan el total de src de imagenes
 
 getSRC = lambda x: x.get_attribute("src") #Función lambda para obtener el src de los elementos img
 
+# Busqueda de imágenes en Shutterstock
+print("Buscando imágenes...")
 for currentPage in range(1,lastPageToSearch + 1):
 
     #Cargar la página con su respectiva paginación
@@ -63,8 +67,12 @@ trainSample = totalSources[:pivot]
 testSample = totalSources[pivot:]
 
 #Descarga de imagenes
+print("Imagenes recolectadas")
+print("Descargando imágenes de entrenamiento (train)")
 downloadSamples(trainSample,SampleType.train.name)
+print("Descargando imágenes de prueba (test)")
 downloadSamples(testSample,SampleType.test.name)
+print("Descarga Completa")
 
 #Cerrar el navegador
 driver.close()
